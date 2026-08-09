@@ -27,4 +27,4 @@ jobs:
 
       - name: Verificar que la aplicación inicia
         run: |
-          timeout 10s npm start || true
+          timeout 10s npm start 
