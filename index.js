@@ -48,6 +48,6 @@ app.post('/api/productos', async (req, res) => {
   }
 });
 
-app.listen(PORT, function () {
-  console.log('Servidor corriendo en el puerto 3000');
+app.listen(PORT,'0.0.0.0', function () {
+  console.log('Servidor corriendo en el puerto' + PORT);
 });
