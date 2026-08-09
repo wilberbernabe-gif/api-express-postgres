@@ -75,27 +75,30 @@ npm start
 ```
 
 Una vez iniciada, estará disponible en:
-
+```bash
 http://localhost:3000
+```
 
 ## Endpoints
-Nota: Puedes auxiliarte de Postman para esta parte.
+Nota: Puedes auxiliarte de Postman para esta parte o del navegador.
 ### GET "/"
 
 Endpoint básico para comprobar que la API está funcionando.
 
 Ejemplo:
+```bash
+http://localhost:3000/
+```
 
-- GET http://localhost:3000/
 
 ### GET "/health"
 
 Endpoint utilizado para comprobar el estado de la aplicación.
 
 Ejemplo:
-
-GET http://localhost:3000/health
-
+```bash
+http://localhost:3000/health
+```
 Respuesta esperada:
 
 {
@@ -107,19 +110,21 @@ Respuesta esperada:
 Obtiene la lista de productos almacenados en PostgreSQL.
 
 Ejemplo:
-
-GET http://localhost:3000/api/productos
+```bash
+http://localhost:3000/api/productos
+```
 
 ### POST "/api/productos"
 
 Agrega un nuevo producto a la base de datos.
 
 Ejemplo de solicitud:
-
+```bash
 {
   "nombre": "Laptop",
   "precio": 799.99
 }
+```
 
 ## Estructura del proyecto
 ```text
@@ -145,6 +150,65 @@ Nota: La carpeta "node_modules" se genera automáticamente al ejecutar "npm inst
 ## Base de datos en Neon
 
 Durante el desarrollo se utiliza Neon como proveedor de PostgreSQL. La aplicación se conecta a la base de datos mediante la variable de entorno "DATABASE_URL". La cadena de conexión no se incluye directamente en el código ni en el repositorio Githud.
+
+## Despliegue en la nube
+La API se encuentra desplegada en Render.
+URL pública:
+```bash
+https://api-express-postgres.onrender.com
+```
+
+La aplicación utiliza la variable de entorno DATABASE_URL para conectarse a la base de datos PostgreSQL alojada en Neon.
+Render proporciona automáticamente la variable `PORT utilizada por el servicio en producción
+
+#Monitoreo
+La aplicación cuenta con el endpoint:
+/health
+Este endpoint realiza una consulta a PostgreSQL para comprobar que la API y la base de datos están operativas.
+URL pública del monitoreo:
+```bash
+https://api-express-postgres.onrender.com/health
+```
+Una respuesta con:
+```bash
+{
+  "status": "OK",
+  "database": "connected"
+}
+```
+Indica que la aplicación está funcionando correctamente y que existe conexión con PostgreSQL.
+
+#Plan de backups
+El proyecto cuenta con un plan documentado de respaldos y recuperación de información.
+El documento se encuentra en:
+
+BACKUP.md
+
+El plan incluye:
+
+- Información que debe respaldarse.
+- Frecuencia de los respaldos.
+- Lugar de almacenamiento.
+- Procedimiento de recuperación.
+- Retención de respaldos.
+- Medidas de seguridad.
+- Pruebas de recuperación.
+- Los respaldos no deben incluirse directamente en el repositorio público cuando contengan información sensible o credenciales
+  
+#CI/CD
+El proyecto utiliza GitHub Actions para automatizar la integración continua.
+El workflow se encuentra en:
+
+.github/workflows/ci.yml
+
+El pipeline se ejecuta automáticamente cuando se realiza un push a la rama main o cuando se genera un Pull Request hacia main.
+El proceso realiza:
+
+- Descarga del código fuente.
+- Configuración de Node.js.
+- Instalación de dependencias mediante npm ci.
+- Verificación de que la aplicación puede iniciar correctamente.
+- Además, Render está conectado al repositorio de GitHub y permite realizar el despliegue de la aplicación cuando existen nuevos cambios en la rama principal.
 
 ## Estado del proyecto
 Actualmente este proyecto cuenta con:
