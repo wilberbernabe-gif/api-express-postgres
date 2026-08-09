@@ -49,5 +49,5 @@ app.post('/api/productos', async (req, res) => {
 });
 
 app.listen(PORT,'0.0.0.0', function () {
-  console.log('Servidor corriendo en el puerto' + PORT);
+  console.log('Servidor corriendo en el puerto ' + PORT);
 });
