@@ -1,4 +1,4 @@
-name: CI - API Express PostgreSQL
+name: CI con API express usando PostgreSQL
 
 on:
   push:
