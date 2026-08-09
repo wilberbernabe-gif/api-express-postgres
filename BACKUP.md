@@ -1,6 +1,7 @@
-# Plan de Backups para el proyecto de API Express con PostgreSQL
+# Plan de Backups para el proyecto de API Express con PostgreSQL #
 
-## 1. Objetivo
+## 1. Objetivo ##
+
 Establecer un procedimiento para proteger la información almacenada en la base de datos PostgreSQL utilizada por la API y permitir su recuperación ante errores, pérdida de información o fallos de infraestructura.
 ---
 ## 2. Información respaldada
