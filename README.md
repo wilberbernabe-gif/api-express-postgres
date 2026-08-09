@@ -13,7 +13,7 @@ El proyecto permite consultar y agregar productos y cuenta con un endpoint de sa
 - Node PostgreSQL ("pg")
 - dotenv
 - Git y GitHub
----
+
 ## Requisitos
 
 Antes de ejecutar el proyecto se necesita tener instalado:
@@ -22,7 +22,7 @@ Antes de ejecutar el proyecto se necesita tener instalado:
 - npm
 - Acceso a una base de datos PostgreSQL
 - La base de datos utilizada durante el desarrollo está alojada en Neon.
----
+  
 ## Para instalarla
 
 ### Para Clonar el repositorio pega este link en el CMD o el terminal:
@@ -39,7 +39,6 @@ cd api-express-postgres
 ```bash
 npm install
 ```
----
 ## Configuración de variables de entorno
 
 ### Crear un archivo ".env" en la raíz del proyecto.
@@ -78,7 +77,6 @@ npm start
 Una vez iniciada, estará disponible en:
 
 http://localhost:3000
----
 
 ## Endpoints
 Nota: Puedes auxiliarte de Postman para esta parte.
@@ -122,32 +120,34 @@ Ejemplo de solicitud:
   "nombre": "Laptop",
   "precio": 799.99
 }
----
-## Estructura del proyecto
 
+## Estructura del proyecto
+```text
 api-express-postgres/
 │
-├── .env
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+│
 ├── .env.example
 ├── .gitignore
+├── BACKUP.md
 ├── database.sql
 ├── db.js
 ├── index.js
 ├── package.json
 ├── package-lock.json
-├── README.md
-│
-└── node_modules/
+└── README.md
+```
 
 Nota: La carpeta "node_modules" se genera automáticamente al ejecutar "npm install" y no debe subirse al repositorio Githud.
----
+
 ## Base de datos en Neon
 
 Durante el desarrollo se utiliza Neon como proveedor de PostgreSQL. La aplicación se conecta a la base de datos mediante la variable de entorno "DATABASE_URL". La cadena de conexión no se incluye directamente en el código ni en el repositorio Githud.
 
-Estado del proyecto
-
-Actualmente el proyecto cuenta con:
+## Estado del proyecto
+Actualmente este proyecto cuenta con:
 
 - API REST desarrollada con Express.
 - Conexión a PostgreSQL.
@@ -156,11 +156,6 @@ Actualmente el proyecto cuenta con:
 - Archivo ".env.example".
 - Endpoint "/health".
 - Script SQL para crear la tabla "productos".
-
-Próximamente se incorporarán:
-
 - Despliegue de la API en la nube.
-- Monitoreo.
-- Plan documentado de backups.
 - Pipeline CI/CD mediante GitHub Actions.
 - URL pública de la API.
