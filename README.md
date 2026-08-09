@@ -100,10 +100,11 @@ Ejemplo:
 http://localhost:3000/health
 ```
 Respuesta esperada:
-
+```bash
 {
   "status": "ok"
 }
+```
 
 ### GET "/api/productos"
 
