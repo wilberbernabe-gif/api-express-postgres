@@ -162,7 +162,7 @@ https://api-express-postgres.onrender.com
 La aplicación utiliza la variable de entorno DATABASE_URL para conectarse a la base de datos PostgreSQL alojada en Neon.
 Render proporciona automáticamente la variable `PORT utilizada por el servicio en producción
 
-#Monitoreo
+## Monitoreo
 La aplicación cuenta con el endpoint:
 /health
 Este endpoint realiza una consulta a PostgreSQL para comprobar que la API y la base de datos están operativas.
@@ -179,7 +179,7 @@ Una respuesta con:
 ```
 Indica que la aplicación está funcionando correctamente y que existe conexión con PostgreSQL.
 
-#Plan de backups
+## Plan de backups
 El proyecto cuenta con un plan documentado de respaldos y recuperación de información.
 El documento se encuentra en:
 
@@ -196,7 +196,7 @@ El plan incluye:
 - Pruebas de recuperación.
 - Los respaldos no deben incluirse directamente en el repositorio público cuando contengan información sensible o credenciales
   
-#CI/CD
+## CI/CD
 El proyecto utiliza GitHub Actions para automatizar la integración continua.
 El workflow se encuentra en:
 
